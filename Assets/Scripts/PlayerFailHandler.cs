@@ -5,16 +5,20 @@ using UnityEngine;
 
 public class PlayerFailHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private PlayerMovement _playerMovement;
+    [SerializeField] private ParticleSystem deathParticle;
+    [SerializeField] private Canvas deathCanvas;
+
+    private void Start()
     {
-        
+        _playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
-
-    /*private void OnTriggerEnter2D(Collider2D other)
-    { 
-        //if (other.gameObject.CompareTag(""))
-            Debug.Log("collided with " + other.gameObject.name);
-    }*/
+    public void HandleDeath()
+    {
+        Debug.Log("you died");
+        _playerMovement.isAlive = false;
+        deathParticle.Play();
+        deathCanvas.gameObject.SetActive(true);
+    }
 }

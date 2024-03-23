@@ -16,8 +16,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Sprite leftSprite;
     [SerializeField] private Sprite rightSprite;
 
-    [SerializeField] private float screenBoundX = 9.5f;
-    [SerializeField] private float screenBoundY = -9.5f;
+    [SerializeField] public float screenBoundX = 9.5f;
+    [SerializeField] public float screenBoundY = -9.5f;
+
+    public bool isAlive { get; set; } = true;
     
     void Start()
     {
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private void HandleMovement()
     {
         _timer += Time.deltaTime;
-        if (_timer >= moveTimer)
+        if (_timer >= moveTimer && isAlive)
         {
             transform.position += _moveDirection;
             _timer -= moveTimer;
