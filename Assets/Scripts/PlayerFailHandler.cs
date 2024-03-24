@@ -17,7 +17,7 @@ public class PlayerFailHandler : MonoBehaviour
     public void HandleDeath()
     {
         Debug.Log("you died");
-        _playerMovement.isAlive = false;
+        _playerMovement.IsAlive = false;
         deathParticle.Play();
         deathCanvas.gameObject.SetActive(true);
     }

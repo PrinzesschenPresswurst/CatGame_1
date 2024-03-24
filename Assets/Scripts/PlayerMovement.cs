@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _moveDirection;
     private float _timer = 0f;
     [SerializeField] public float moveTimer = 1f;
-    public bool resetTimer { get; private set; } = false;
+    public bool TimerWasReset { get; private set; } = false;
     
     private SpriteRenderer _spriteRenderer;
     [SerializeField] private Sprite backSprite;
@@ -16,15 +16,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Sprite leftSprite;
     [SerializeField] private Sprite rightSprite;
 
-    [SerializeField] public float screenBoundX = 9.5f;
-    [SerializeField] public float screenBoundY = -9.5f;
-
-    public bool isAlive { get; set; } = true;
+    [SerializeField] private GameObject gameHandler; 
+    public bool IsAlive { get; set; } = true;
+    private BackgroundSize size;
     
     void Start()
     {
-        _moveDirection = Vector3.right; // set start direction
-        transform.position = new Vector3(-9.5f, -9.5f, 0f); // set start position
+        _moveDirection = Vector3.down; // set start direction
+        transform.position = Vector3.zero; // set start position
+        size = gameHandler.GetComponent<BackgroundSize>();
+        
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -38,13 +39,13 @@ public class PlayerMovement : MonoBehaviour
     private void HandleMovement()
     {
         _timer += Time.deltaTime;
-        if (_timer >= moveTimer && isAlive)
+        if (_timer >= moveTimer && IsAlive)
         {
             transform.position += _moveDirection;
             _timer -= moveTimer;
-            resetTimer = true;
+            TimerWasReset = true;
         }
-        else resetTimer = false;
+        else TimerWasReset = false;
     }
 
     private void HandleMoveDirection()
@@ -77,8 +78,8 @@ public class PlayerMovement : MonoBehaviour
     private void KeepPlayerInBounds()
     {
         Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, screenBoundX, screenBoundY);
-        pos.y = Mathf.Clamp(pos.y, screenBoundX, screenBoundY);
+        pos.x = Mathf.Clamp(pos.x, size.screenBoundXMin, size.screenBoundXMax);
+        pos.y = Mathf.Clamp(pos.y, size.screenBoundYMin, size.screenBoundYMax);
         transform.position = pos;
     }
 }

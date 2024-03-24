@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1240748894990116657}
   - component: {fileID: 5861314531948920842}
   - component: {fileID: 1530928370675534371}
+  - component: {fileID: 2897570373406130611}
   m_Layer: 0
   m_Name: BodyPart
   m_TagString: BodyPart
@@ -27,9 +28,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2558056073728382746}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.494, y: -6.496, z: 0}
-  m_LocalScale: {x: 0.9, y: 1.34, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6b1ff480203ec854995335cb2562bef4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 085def43d328f10438647a1d7ace228b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 0.6363636}
+  m_Size: {x: 0.15, y: 0.15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b18abf62e18e944b00a030fa2c937c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
 --- !u!61 &1530928370675534371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134,8 +136,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.6363636}
-    newSize: {x: 1, y: 0.6363636}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.15, y: 0.15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -143,3 +145,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7754469, y: 0.54330504}
   m_EdgeRadius: 0
+--- !u!114 &2897570373406130611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2558056073728382746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8532b3672b0cca84f845a6d957badfa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upSprite: {fileID: 21300000, guid: c5e4e4ba7b22d8c4b94d746d438a58d5, type: 3}
+  rightSprite: {fileID: 21300000, guid: 085def43d328f10438647a1d7ace228b, type: 3}
+  curveUpRight: {fileID: 21300000, guid: 788ddb194fc93974fa9e7b25d2aa1e9a, type: 3}
+  curveUpLeft: {fileID: 21300000, guid: 844a4957db9092940983676aa9011783, type: 3}
+  curveDownRight: {fileID: 21300000, guid: 61fc7ab94b986b14e9ff9b200379025e, type: 3}
+  curveDownLeft: {fileID: 21300000, guid: f1a55304f0c0e1a478519c87da1e70be, type: 3}

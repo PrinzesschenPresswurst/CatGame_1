@@ -8,16 +8,16 @@ using UnityEngine.UI;
 public class ScoreHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-    private int score;
+    private int _score;
     void Start()
     {
-        score = 0;
-        text.text = score.ToString();
+        _score = 0;
+        text.text = _score.ToString();
     }
 
     public void IncreaseScore()
     {
-        score++;
-        text.text = score.ToString();
+        _score++;
+        text.text = _score.ToString();
     }
 }

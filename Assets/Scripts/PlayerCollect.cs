@@ -2,35 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerCollect : MonoBehaviour
 {
-    private BodyPartHandler _bodyPartHandler;
-    private FoodSpawner _foodSpawner;
-    private PlayerFailHandler _playerFailHandler;
-    private ScoreHandler _scoreHandler;
-
-    private void Start()
-    {
-        _bodyPartHandler = FindObjectOfType<BodyPartHandler>();
-        _foodSpawner = FindObjectOfType<FoodSpawner>();
-        _playerFailHandler = FindObjectOfType<PlayerFailHandler>();
-        _scoreHandler = FindObjectOfType<ScoreHandler>();
-    }
-
+    [SerializeField] private GameObject gameHandler; 
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Food"))
         {
-            _bodyPartHandler.OnFoodCollect();
+            gameHandler.GetComponent<BodyPartHandler>().OnFoodCollect();
             Destroy(other.gameObject);
-            StartCoroutine(_foodSpawner.OnFoodCollect()); 
-            _scoreHandler.IncreaseScore();
+            StartCoroutine(gameHandler.GetComponent<FoodSpawner>().OnFoodCollect()); 
+            gameHandler.GetComponent<ScoreHandler>().IncreaseScore();
         }
         
         else if  (other.gameObject.CompareTag("BodyPart"))
         {
-            _playerFailHandler.HandleDeath();
+            gameHandler.GetComponent<PlayerFailHandler>().HandleDeath();
         }
     }
     
