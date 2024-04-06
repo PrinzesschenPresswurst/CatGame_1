@@ -9,6 +9,7 @@ public class BodypartMovement : MonoBehaviour
     private PlayerMovement _playerMovement;
     private BodyPartHandler _bodyPartHandler;
     
+    
     void Start()
     {
         _playerMovement = FindObjectOfType<PlayerMovement>();
@@ -21,6 +22,7 @@ public class BodypartMovement : MonoBehaviour
 
     void Update()
     {
+        
         if (!_playerMovement.TimerWasReset)
         {
             parentPos = parent.transform.position;
@@ -30,5 +32,10 @@ public class BodypartMovement : MonoBehaviour
         {
             transform.position = parentPos;
         }
+        
     }
+
+    
+    
+    
 }

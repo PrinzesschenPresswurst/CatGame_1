@@ -5808,7 +5808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6566e7777cd520f498b9e3e648c01f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTimer: 0.2
+  _timer: 0
+  moveTimer: 0.5
   backSprite: {fileID: 21300000, guid: 3f121e74b6729694d95e32ad8c46827e, type: 3}
   frontSprite: {fileID: 21300000, guid: 8caf762f415b39349bd4fc4e0a694000, type: 3}
   leftSprite: {fileID: 21300000, guid: 5c2f125742189c546b968d4a166f0fb0, type: 3}

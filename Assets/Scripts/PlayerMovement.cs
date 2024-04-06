@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     private Vector3 _moveDirection;
-    private float _timer = 0f;
+    public float _timer = 0f;
     [SerializeField] public float moveTimer = 1f;
     public bool TimerWasReset { get; private set; } = false;
     
